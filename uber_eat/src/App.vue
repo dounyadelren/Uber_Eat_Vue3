@@ -1,14 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import RestoCard from "./components/RestoCard.vue";
-
 </script>
-
 <template>
-  <header>
-    <RestoCard />
-  </header>
-
   <RouterView />
 </template>
 <style>
@@ -23,6 +16,7 @@ body {
 
 #app {
   font-family: "Roboto", sans-serif;
+  padding: 20px;
 }
 </style>
 
