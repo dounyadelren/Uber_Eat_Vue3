@@ -3,18 +3,21 @@
         <div class="restaurant-image"></div>
         <div class="restaurant-info">
             <div class="top">
-                <p class="name">Subway</p>
-                <p class="note"><span>4.5</span></p>
+                <p class="name">{{ info_resto.name}}</p>
+                <p class="note"><span>{{ info_resto.note}}</span></p>
             </div>
         </div>
-        <p class="time">20-30min</p>
+        <p class="time">{{ info_resto.drive_time }}</p>
     </div>
 </template>
 
 <script>
 export default {
     name:
-    'RestoCard'
+    'RestoCard',
+    props: {
+        info_resto: Object
+    }
 
 }
 </script>
@@ -30,7 +33,7 @@ export default {
 }
 
 .restaurant-image {
-    background-image: url('https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly9kMXJhbHNvZ25qbmczNy5jbG91ZGZyb250Lm5ldC8zNzg4MDJiMC1jNTI4LTQ4MjktYjBiNS0wY2M2NDBkZjYzY2QuanBlZw==');
+    background-image: url();
     height: 70%;
     background-size: cover;
     background-position: center;
