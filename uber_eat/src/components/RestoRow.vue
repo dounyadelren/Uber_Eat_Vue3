@@ -2,7 +2,7 @@
     <div class="restaurant-row">
         <h2 class="title">Nos restaurants</h2>
         <div class="wrapper-card">
-            <RestoCard v-for="(card, index) in 3" :key="index" />
+            <RestoCard v-for="(card, index) in three_resto" :info_resto="card" :key="index" />
         </div>
     </div>
 
@@ -13,7 +13,10 @@ import RestoCard from "./RestoCard.vue"
 export default {
     name: "RestoRow",
     components: "RestoCard",
-    components: { RestoCard }
+    components: { RestoCard },
+    props: {
+        three_resto: Array
+    }
 }
 </script>
 
@@ -22,6 +25,7 @@ export default {
     .title {
         font-size: 2rem;
     }
+
     .wrapper-card {
         display: flex;
         align-items: center;
