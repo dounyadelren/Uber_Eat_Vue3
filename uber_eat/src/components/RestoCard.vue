@@ -14,5 +14,9 @@ export default {
 .restaurant-card {
     width:32%;
     height: 30vh;
+
+    p {
+        margin: 0px;
+    }
 }
 </style>
