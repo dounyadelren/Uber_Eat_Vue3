@@ -19,6 +19,9 @@ export default {
 
 <style lang="scss">
 .restaurant-row {
+    .title {
+        font-size: 2rem;
+    }
     .wrapper-card {
         display: flex;
         align-items: center;
