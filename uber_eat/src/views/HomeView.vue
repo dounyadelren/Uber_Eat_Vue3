@@ -1,6 +1,7 @@
 <script>
 import RestoRow from "../components/RestoRow.vue"
 import Bdd from "../bdd.js"
+import { onMounted, ref } from "vue"
 
 export default {
   name: "HomeView",
@@ -16,15 +17,32 @@ export default {
         this.drive_time = drive_time
       }
     }
-    var resto = new Restaurant('toto', '3.5', 'url', '30min')
-    console.log(resto)
+
+    let dataResto = ref([]);
+    let three_resto = []
+    const makeDataRestaurant = () => {
+      for (const restaurant of Bdd) {
+        const new_resto = new Restaurant(restaurant.name, restaurant.note, restaurant.image, restaurant.drive_time);
+        if (three_resto.length === 2) {
+          three_resto.push(new_resto);
+          dataResto.value.push(three_resto);
+          three_resto = []
+        } else {
+          three_resto.push(new_resto)
+        }
+      }
+    }
+    onMounted(makeDataRestaurant);
+    return {
+      dataResto
+    }
   }
 }
 </script>
 
 <template>
   <main>
-    <RestoRow v-for="(card, index) in 3" :key="index" />
+    <RestoRow v-for="(data, i) in dataResto" v-bind:key="i" :three_resto="data"/>
   </main>
 </template>
 <style>
